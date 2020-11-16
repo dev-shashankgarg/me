@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     aboutMeContainer: {
-        padding: "16px"
+        padding: "24px"
     },
     buttonContainer: {
         padding: "16px 0px"
@@ -57,18 +57,26 @@ const useStyles = makeStyles((theme) => ({
 const AboutPage = () => {
 
     const classes = useStyles();
+    const [lock, setLock] = React.useState(false);
 
     const handleDownload = () => {
-        fileSaver.saveAs(
-            process.env.PUBLIC_URL + "/assets/files/shashankgarg_resume.pdf",
-            "shashankgarg_resume.pdf"
-        );
+        try {
+            setLock(true);
+            fileSaver.saveAs(
+                process.env.PUBLIC_URL + "/assets/files/shashankgarg_resume.pdf",
+                "shashankgarg_resume.pdf"
+            );
+        } catch (exception) { }
+        finally {
+            setLock(false);
+        }
+
     }
 
     return (<React.Fragment>
         <Grid container className={classes.root} id={"about"}>
             <Grid item sm={12}>
-                <Grid container justify={"center"} alignItems="center" spacing={4}>
+                <Grid container justify={"center"} alignItems="center">
                     <Grid item sm={2}>
                         <Grid container justify="center">
                             <Grid item><img src={profileImage} className={classes.profileImage}></img></Grid>
@@ -106,7 +114,7 @@ const AboutPage = () => {
                             <Grid item>
                                 <Grid container spacing={3} className={classes.buttonContainer}>
                                     <Grid item> <Button variant="contained" size="small" startIcon={<MailIcon />}>Contact Me</Button></Grid>
-                                    <Grid item><Button variant="contained" size="small" startIcon={<CloudDownloadIcon />} onClick={handleDownload}>Download Resume</Button></Grid>
+                                    <Grid item><Button variant="contained" size="small" startIcon={<CloudDownloadIcon />} onClick={handleDownload} disabled={lock}>Download Resume</Button></Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
