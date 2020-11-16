@@ -17,7 +17,9 @@ import { ReactComponent as CodeforcesIcon } from '../library/graphics/codeforces
 
 const useStyles = makeStyles(theme => ({
     root: {
-        height: "100%"
+        height: "100%",
+        background: "url(../assets/images/bg.jpg) center center no-repeat",
+        backgroundSize: "100% cover"
     },
     nameText: {
         fontSize: theme.fontSize.xxxl,
@@ -56,7 +58,7 @@ const useStyles = makeStyles(theme => ({
         textShadow: "3px 4px 5px #000"
     },
     profileLinkContainer: {
-        marginTop: "16px",
+        marginTop: "64px",
         backgroundColor: darken('#282c34', .25),
         borderRadius: "100px"
     },
