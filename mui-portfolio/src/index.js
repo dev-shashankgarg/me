@@ -6,6 +6,7 @@ import { createMuiTheme, ThemeProvider, makeStyles, responsiveFontSizes } from '
 
 let theme = createMuiTheme({
   fontSize: {
+    xxxl: "64px",
     xxl: '48px',
     xl: "32px",
     lg: "24px",
@@ -16,7 +17,6 @@ let theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#282c34",
     height: "100%",
   }
 }));
