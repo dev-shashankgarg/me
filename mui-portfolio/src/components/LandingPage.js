@@ -94,6 +94,15 @@ const LandingPage = () => {
 
     const classes = useStyles();
 
+    const goToPage = (page) => {
+        window.scrollTo({
+            behavior: "smooth",
+            top:
+                document.getElementById(page).getBoundingClientRect().top -
+                document.body.getBoundingClientRect().top
+        });
+    }
+
     return <React.Fragment>
         <Grid container className={classes.root} direction={"column"} justify={"space-between"} >
             <Grid item></Grid>
@@ -190,7 +199,7 @@ const LandingPage = () => {
             <Grid item>
                 <Grid container justify={"center"} alignItems="center">
                     <Tooltip title="Know More!">
-                        <IconButton className={classes.redirectIcons} onClick={() => { }}>
+                        <IconButton className={classes.redirectIcons} onClick={() => { goToPage("about") }}>
                             <ExpandMoreIcon className={classes.expandIcon} />
                         </IconButton>
                     </Tooltip>
