@@ -2,6 +2,8 @@ import React from 'react'
 import LandingPage from './components/LandingPage'
 import AboutPage from './components/AboutPage'
 import SkillsPage from './components/SkillsPage'
+import WorkPage from './components/WorkPage'
+import EducationPage from './components/EducationPage'
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Divider } from '@material-ui/core'
 
@@ -29,6 +31,10 @@ const AppDashboard = () => {
         <AboutPage />
         <SkillsPage />
         {divider()}
+        <WorkPage />
+        {divider()}
+        <EducationPage />
+
     </React.Fragment>
 }
 

@@ -15,6 +15,9 @@ import { ReactComponent as CssIcon } from '../library/graphics/css.svg';
 import { ReactComponent as GitIcon } from '../library/graphics/git.svg';
 import { ReactComponent as HtmlIcon } from '../library/graphics/html5.svg';
 
+import toolboxImage from '../library/images/toolbox.png'
+
+
 import clsx from 'clsx'
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -59,6 +62,10 @@ const useStyles = makeStyles((theme) => ({
         textDecorationColor: "#e94560",
         textUnderlinePosition: "under"
 
+    },
+    toolboxImage: {
+        height: "48px",
+        width: "48px",
     }
 }));
 
@@ -77,7 +84,14 @@ const SkillsPage = () => {
 
     return (<React.Fragment>
         <Grid container justify="center" alignItems="center" className={classes.root} id={"skills"}>
-            <Grid item sm={3} ><Typography className={clsx(classes.textBase, classes.textLg, classes.textUnderline)}>TOOLBOX</Typography></Grid>
+            <Grid item sm={3} >  <Grid container alignItems="center" justify="center" direction="column">
+                <Grid item>
+                    <img src={toolboxImage} className={classes.toolboxImage} />
+                </Grid>
+                <Grid item>
+                    <Typography className={clsx(classes.textBase, classes.textLg, classes.textUnderline)}>TOOLBOX</Typography>
+                </Grid>
+            </Grid></Grid>
             <Grid item sm={7}>
                 <Grid container alignItems="center" justify="center" spacing={1} className={classes.skillsContainer}>
                     {[{ label: "Java", icon: <JavaIcon className={classes.icon} /> },
