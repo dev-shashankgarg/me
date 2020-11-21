@@ -13,9 +13,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         height: "100%",
         //backgroundImage: "linear-gradient(119.0954680287216deg, rgba(74, 77, 84,1) 6.654947916666667%,rgba(66, 69, 76,1) 19.321940104166668%,rgba(49, 52, 60,1) 47.21256510416667%,rgba(40, 44, 52,1) 62.436197916666664%)",
-        background: "url(../assets/images/contact_bg.jpg) center center no-repeat",
-        backgroundSize: "100% cover",
-        paddingTop: "32px"
+        backgroundColor: "#222831",
+        //paddingTop: "32px"
     },
     mailIcon: {
         fontSize: "48px",
@@ -50,6 +49,8 @@ const useStyles = makeStyles((theme) => ({
         opacity: "0.5"
     },
     emailFormContainer: {
+        background: "url(../assets/images/contact_bg.jpg) center center no-repeat",
+        backgroundSize: "100% cover",
         paddingTop: "16px"
     },
     emailFormRow: {
@@ -67,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
         color: "#282c34"
     },
     footer: {
-        height: "15%",
         alignItems: "center",
         paddingTop: "10px",
         backgroundColor: "#222831"
@@ -163,20 +163,20 @@ const ContactPage = () => {
 
     return (<React.Fragment>
         <Grid container className={classes.root} id="contact">
-            <Grid item xs={12} style={{ height: "15%" }}>
-                <Grid container alignItems="center" justify="center" >
-                    <Grid item xs={12}>
+            <Grid item xs={12}>
+                <Grid container alignItems="center" justify="center" className={classes.emailFormContainer}>
+                    <Grid item xs={12} style={{ paddingTop: "32px" }}>
                         <Grid container alignItems="center" justify="center" >
-                            <Grid item><MailIcon className={classes.mailIcon} /></Grid>
+                            <Grid item xs={12}>
+                                <Grid container alignItems="center" justify="center" >
+                                    <Grid item><MailIcon className={classes.mailIcon} /></Grid>
                             &nbsp;
                             &nbsp;
                             <Grid item><Typography className={clsx(classes.textBase, classes.textLg)}>Contact Me</Typography></Grid></Grid>
+                            </Grid>
+                            <Grid item><blockquote><Typography className={clsx(classes.textBase, classes.textMd, classes.textOpacity)}>My Golden Rule of Networking is simple: Don't keep score.</Typography></blockquote></Grid>
+                        </Grid>
                     </Grid>
-                    <Grid item><blockquote><Typography className={clsx(classes.textBase, classes.textMd, classes.textOpacity)}>My Golden Rule of Networking is simple: Don't keep score.</Typography></blockquote></Grid>
-                </Grid>
-            </Grid>
-            <Grid item xs={12} style={{ height: "70%" }}>
-                <Grid container alignItems="center" justify="center" className={classes.emailFormContainer}>
                     <Grid item xs={10} className={classes.emailFormRow}>
                         <Grid container alignItems="center" justify="center">
                             <Grid item xs={4} md={2}><Typography className={clsx(classes.textBase, classes.textMd)}>Name <span className={classes.textRed}>*</span></Typography></Grid>
