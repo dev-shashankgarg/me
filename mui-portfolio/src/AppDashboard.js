@@ -4,6 +4,7 @@ import AboutPage from './components/AboutPage'
 import SkillsPage from './components/SkillsPage'
 import WorkPage from './components/WorkPage'
 import EducationPage from './components/EducationPage'
+import ContactPage from './components/ContactPage'
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Divider } from '@material-ui/core'
 
@@ -34,7 +35,7 @@ const AppDashboard = () => {
         <WorkPage />
         {divider()}
         <EducationPage />
-
+        <ContactPage />
     </React.Fragment>
 }
 

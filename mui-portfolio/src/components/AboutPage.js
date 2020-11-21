@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     aboutMeContainer: {
-        padding: "24px"
+        padding: "24px 0px"
     },
     buttonContainer: {
         padding: "16px 0px"
@@ -70,19 +70,27 @@ const AboutPage = () => {
         finally {
             setLock(false);
         }
+    }
 
+    const goToPage = (page) => {
+        window.scrollTo({
+            behavior: "smooth",
+            top:
+                document.getElementById(page).getBoundingClientRect().top -
+                document.body.getBoundingClientRect().top
+        });
     }
 
     return (<React.Fragment>
         <Grid container className={classes.root} id={"about"}>
-            <Grid item sm={12}>
+            <Grid item md={12}>
                 <Grid container justify={"center"} alignItems="center">
-                    <Grid item sm={2}>
+                    <Grid item xs={12} md={2}>
                         <Grid container justify="center">
                             <Grid item><img src={profileImage} className={classes.profileImage}></img></Grid>
                         </Grid>
                     </Grid>
-                    <Grid item sm={6}>
+                    <Grid item xs={11} md={6}>
                         <Grid container direction={"column"} spacing={1} className={classes.aboutMeContainer}>
                             <Grid item>
                                 <Typography className={clsx(classes.textBase, classes.textRed)}>DISCOVER</Typography>
@@ -113,7 +121,7 @@ const AboutPage = () => {
                             </Grid>
                             <Grid item>
                                 <Grid container spacing={3} className={classes.buttonContainer}>
-                                    <Grid item> <Button variant="contained" size="small" startIcon={<MailIcon />}>Contact Me</Button></Grid>
+                                    <Grid item> <Button variant="contained" size="small" startIcon={<MailIcon />} onClick={() => { goToPage("contact") }}>Contact Me</Button></Grid>
                                     <Grid item><Button variant="contained" size="small" startIcon={<CloudDownloadIcon />} onClick={handleDownload} disabled={lock}>Download Resume</Button></Grid>
                                 </Grid>
                             </Grid>

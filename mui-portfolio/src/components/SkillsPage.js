@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         heigh: "25px"
     },
     skillsContainer: {
-        padding: "16px"
+        paddingTop: "16px"
     },
     skillChip: {
         borderColor: "#282c34"
@@ -84,7 +84,7 @@ const SkillsPage = () => {
 
     return (<React.Fragment>
         <Grid container justify="center" alignItems="center" className={classes.root} id={"skills"}>
-            <Grid item sm={3} >  <Grid container alignItems="center" justify="center" direction="column">
+            <Grid item xs={12} md={3} >  <Grid container alignItems="center" justify="center" direction="column">
                 <Grid item>
                     <img src={toolboxImage} className={classes.toolboxImage} />
                 </Grid>
@@ -92,7 +92,7 @@ const SkillsPage = () => {
                     <Typography className={clsx(classes.textBase, classes.textLg, classes.textUnderline)}>TOOLBOX</Typography>
                 </Grid>
             </Grid></Grid>
-            <Grid item sm={7}>
+            <Grid item xs={11} md={7}>
                 <Grid container alignItems="center" justify="center" spacing={1} className={classes.skillsContainer}>
                     {[{ label: "Java", icon: <JavaIcon className={classes.icon} /> },
                     { label: "Springboot", icon: <SpringIcon className={classes.icon} /> },

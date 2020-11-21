@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         heigh: "25px"
     },
     educationContainer: {
-        padding: "16px"
+        paddingTop: "16px"
     },
     text: {
         fontSize: theme.fontSize.md,
@@ -74,7 +74,7 @@ const EducationPage = () => {
     const classes = useStyles();
 
     const generate = (item) => {
-        return <Grid item sm={12}>
+        return <Grid item xs={11}>
             <Grid container alignItems="center" spacing={2}>
                 <Grid item><img src={item.imageSrc} className={classes.collegeImage} /></Grid>
                 <Grid item><Typography className={clsx(classes.textBase, classes.textLg, classes.textBold)}>{item.title}</Typography></Grid>
@@ -94,7 +94,7 @@ const EducationPage = () => {
 
     return (<React.Fragment>
         <Grid container justify="center" alignItems="center" className={classes.root} id={"skills"}>
-            <Grid item sm={3} >
+            <Grid item xs={12} md={3} >
                 <Grid container alignItems="center" justify="center" direction="column">
                     <Grid item>
                         <img src={educationImage} className={classes.educationImage} />
@@ -104,7 +104,7 @@ const EducationPage = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item sm={7}>
+            <Grid item xs={10} md={7}>
                 <Grid container alignItems="center" justify="center" spacing={1} className={classes.educationContainer}>
                     {[{
                         title: "Thapar University",
