@@ -7,6 +7,7 @@ import clsx from 'clsx'
 
 import EmailValidator from 'email-validator';
 import { generate } from '../core/emailTemplate'
+import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -66,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#282c34"
     },
     footer: {
-        height: "25%",
+        height: "15%",
         alignItems: "center",
         paddingTop: "10px",
         backgroundColor: "#222831"
@@ -76,6 +77,12 @@ const useStyles = makeStyles((theme) => ({
 const ContactPage = () => {
     const classes = useStyles();
 
+    const { enqueueSnackbar } = useSnackbar();
+
+    const handleClickVariant = (variant, message) => () => {
+        // variant could be success, error, warning, info, or default
+        enqueueSnackbar(message, { variant });
+    };
 
     const defaultForm = {
         name: {
@@ -141,8 +148,16 @@ const ContactPage = () => {
             From: "shashankgarg.tu@gmail.com",
             Subject: "[shashankgarg.io]",
             Body: generate(form.subject.value, form.name.value, form.email.value, form.message.value)
-        }).then(
-            message => alert(message)
+        }).then((message) => {
+            if (message && message.toLowerCase().includes("ok")) {
+                handleClickVariant('success', 'I have recieved your message. Thanks for reaching out :)')();
+                setForm({ ...defaultForm });
+            } else {
+                handleClickVariant('error', 'Something went wrong :(')();
+                handleClickVariant('info', 'Please reach out on my below listed email address')();
+                handleClickVariant('info', 'shashankgarg.tu@gmail.com')();
+            }
+        }
         );
     }
 
@@ -160,7 +175,7 @@ const ContactPage = () => {
                     <Grid item><blockquote><Typography className={clsx(classes.textBase, classes.textMd, classes.textOpacity)}>My Golden Rule of Networking is simple: Don't keep score.</Typography></blockquote></Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} style={{ height: "60%" }}>
+            <Grid item xs={12} style={{ height: "70%" }}>
                 <Grid container alignItems="center" justify="center" className={classes.emailFormContainer}>
                     <Grid item xs={10} className={classes.emailFormRow}>
                         <Grid container alignItems="center" justify="center">
@@ -252,9 +267,10 @@ const ContactPage = () => {
                 </Grid>
             </Grid>
             <Grid item xs={12} className={classes.footer}>
-                <Grid container alignItems="center" justify="center" direction={"column"} style={{ paddingTop: "32px" }}>
+                <Grid container alignItems="center" justify="center" direction={"column"}>
                     <Grid item> <Typography className={clsx(classes.textBase, classes.textMd, classes.textOpacity)}>© 2020 Shashank Garg. All Rights Reserved</Typography></Grid>
                     <Grid item> <Typography className={clsx(classes.textBase, classes.textMd, classes.textOpacity)}>Bengaluru , 560102 , KA , IN</Typography></Grid>
+                    <Grid item> <Typography className={clsx(classes.textBase, classes.textMd, classes.textOpacity)}>&#128231;&nbsp;shashankgarg.tu@gmail.com</Typography></Grid>
                 </Grid>
             </Grid>
         </Grid>

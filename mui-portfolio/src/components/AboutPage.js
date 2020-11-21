@@ -102,7 +102,7 @@ const AboutPage = () => {
                             </Grid>
                             <Grid item>
                                 <Typography className={clsx(classes.textBase, classes.textMd)}>
-                                    By profession i'm a software engineer &#128104;&#8205;&#128187; specialised in frontend and backend development with 3+ years of experience designing and building complex web applications.
+                                    By profession i'm a software engineer &#128104;&#8205;&#128187; specialised in frontend and backend development with 3+ years of experience in designing and building complex web applications.
                                 </Typography>
                             </Grid>
                             <Grid item>

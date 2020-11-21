@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import AppDashboard from './AppDashboard';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme, ThemeProvider, makeStyles, responsiveFontSizes } from '@material-ui/core/styles';
+import { SnackbarProvider } from 'notistack';
 
 let theme = createMuiTheme({
   fontSize: {
@@ -30,7 +31,9 @@ const Bundle = () => {
         <CssBaseline />
         <ThemeProvider theme={responsiveFontSizes(theme)}>
           <div className={classes.root}>
-            <AppDashboard />
+            <SnackbarProvider maxSnack={3} anchorOrigin={{ horizontal: "right", vertical: "top" }} autoHideDuration={6000}>
+              <AppDashboard />
+            </SnackbarProvider>
           </div>
         </ThemeProvider>
       </React.Fragment>
